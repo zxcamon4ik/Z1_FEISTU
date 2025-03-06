@@ -12,4 +12,4 @@ set -o nounset
 set -o xtrace
 # [bash_init]-[END]
 
-make 
+make run

@@ -1,3 +1,5 @@
+myUID := $(shell id -u)
+
 CC = gcc
 CFLAGS =
 TARGET=Tcase
@@ -28,5 +30,16 @@ clean:
 run:
 	python3 main.py 
 
-.PHONY: bin cases create build run clean  
+
+echo-i-uid:
+	@echo $(myUID)
+
+
+d-run:
+	@export myUID=$(myUID) && \
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		docker compose \
+			up --build \
+
+.PHONY: bin cases create build run clean d-run echo-i-uid
 

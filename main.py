@@ -2,6 +2,7 @@ import unittest
 import subprocess
 import os 
 
+
 project_root = os.path.dirname(os.path.abspath(__file__))
 
 class TesterZ(unittest.TestCase):
@@ -161,6 +162,7 @@ class TesterZ(unittest.TestCase):
                 raise e
             else:
                 print(f"\033[92mScenario 7 Case {i+1}: SUCCESS\033[0m")
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,8 @@
+services:
+  tester:
+    build: .
+    command: ./start.sh
+    user: "${myUID-1000}"
+    volumes:
+      - ./bin:/wd/bin:rw 
+      - ./cases:/wd/cases:rw 
