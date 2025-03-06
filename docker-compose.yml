@@ -1,8 +1,11 @@
 services:
   tester:
-    build: .
+    build:
+      context: .
+      args:
+        SRC: ${SRC}
     command: ./start.sh
     user: "${myUID-1000}"
     volumes:
       - ./bin:/wd/bin:rw 
-      - ./cases:/wd/cases:rw 
+      - ./cases:/wd/cases:rw

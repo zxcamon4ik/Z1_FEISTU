@@ -38,8 +38,8 @@ echo-i-uid:
 d-run:
 	@export myUID=${myUID} && \
 	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
-		docker compose \
-			up --build \
+		docker compose build --build-arg SRC=$(SRC) && \
+		docker compose up --build 
 
 d-purge:
 	@export myUID=${myUID} &&\
