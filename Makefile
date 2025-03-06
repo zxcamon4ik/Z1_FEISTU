@@ -19,8 +19,7 @@ build: $(SRC)
 	@($(CC) $(CFLAGS) -o bin/$(TARGET) $(SRC) -lm)
 
 
-create: build
-	@make bin
+create: bin cases build 
 	@echo "$(INPUT)" | timeout 5 ./bin/$(TARGET) > cases/local/$(NAME)
 
 clean:
@@ -29,6 +28,8 @@ clean:
 	@echo "Clean!" 
 
 run:
+	@make bin
+	@make cases
 	python3 main.py 
 
 
@@ -38,6 +39,7 @@ echo-i-uid:
 
 d-run:
 	@make bin
+	@make cases
 	@export myUID=${myUID} && \
 	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker compose build --build-arg SRC=$(SRC) && \
