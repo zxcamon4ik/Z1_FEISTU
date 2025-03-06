@@ -20,6 +20,7 @@ build: $(SRC)
 
 
 create: build
+	@make bin
 	@echo "$(INPUT)" | timeout 5 ./bin/$(TARGET) > cases/local/$(NAME)
 
 clean:
@@ -36,6 +37,7 @@ echo-i-uid:
 
 
 d-run:
+	@make bin
 	@export myUID=${myUID} && \
 	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker compose build --build-arg SRC=$(SRC) && \
