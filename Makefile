@@ -36,10 +36,16 @@ echo-i-uid:
 
 
 d-run:
-	@export myUID=$(myUID) && \
+	@export myUID=${myUID} && \
 	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
 		docker compose \
 			up --build \
 
-.PHONY: bin cases create build run clean d-run echo-i-uid
+d-purge:
+	@export myUID=${myUID} &&\
+	COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 \
+		docker compose down --volumes --remove-orphans --rmi local --timeout 0 
+
+
+.PHONY: bin cases create build run clean d-run echo-i-uid d-purge 
 
