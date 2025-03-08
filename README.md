@@ -22,7 +22,7 @@ Hey there! Ready to get started? Follow these steps to install and run the proje
    ```
 
 2. **Install Dependencies:**
-   Make sure you have [Python 3.12+](https://www.python.org/) and [GCC](https://gcc.gnu.org/) installed.
+   Make sure you have [Python 3.12+](https://www.python.org/) [Make](https://www.gnu.org/software/make/manual/make.html) and [GCC](https://gcc.gnu.org/) installed.
 
 3. **Prepare Your C File:**
    - Place your `.c` file named **z1.c** in the root of the project.
